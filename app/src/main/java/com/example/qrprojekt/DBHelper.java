@@ -6,40 +6,37 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "events.db";
-    private static final int DATABASE_VERSION = 1;
-
     // SQL query to create the Events table
-    private static final String CREATE_EVENTS_TABLE =
+    private static final String CREATE_EVENTS_TABLE =   //definování "Events" tabulky
             "CREATE TABLE events (" +
-                    "id INTEGER PRIMARY KEY AUTOINCREMENT, " +  // Auto-increment ID for internal usage
-                    "event_name TEXT, " +                       // Event name
-                    "event_description TEXT, " +                // Event description
-                    "event_id INTEGER NOT NULL UNIQUE);";       // Custom long event_id for external use
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "event_name TEXT, " +
+                    "event_description TEXT, " +
+                    "event_id INTEGER NOT NULL UNIQUE);";   // unikátní event id pro připojení k eventu
 
     // SQL query to create the QR Codes table
-    private static final String CREATE_QR_CODES_TABLE =
+    private static final String CREATE_QR_CODES_TABLE =     //definování "QR codes" tabulky
             "CREATE TABLE qr_codes (" +
-                    "qr_id INTEGER PRIMARY KEY AUTOINCREMENT, " + // Auto-incremented QR code ID
-                    "qr_code TEXT UNIQUE, " +                    // QR code value (string)
-                    "qr_status TEXT, " +                         // Status of the QR code (e.g., active, used, blocked)
-                    "event_id INTEGER, " +                       // Event ID associated with the QR code
-                    "FOREIGN KEY (event_id) REFERENCES events(event_id));"; // Foreign key linking to the events table
+                    "qr_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "qr_code TEXT UNIQUE, " +   // QR kód hodnota (string)
+                    "qr_status TEXT, " +        // status QR kódu (použitý, nepoužitý)
+                    "event_id INTEGER, " +      // Event ID k danému QR kódu
+                    "FOREIGN KEY (event_id) REFERENCES events(event_id));"; // Cizí klíč k propojení tabulek
 
     public DBHelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        super(context, "events.db", null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Execute the SQL queries to create tables
+        // provedení SQL příkazů pro vytvoření tabulek
         db.execSQL(CREATE_EVENTS_TABLE);
         db.execSQL(CREATE_QR_CODES_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Drop existing tables if they exist and create new ones
+        // Dropnutí existujících tabulek a vytvoření nových
         db.execSQL("DROP TABLE IF EXISTS events");
         db.execSQL("DROP TABLE IF EXISTS qr_codes");
         onCreate(db);

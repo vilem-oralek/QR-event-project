@@ -35,13 +35,13 @@ public class CreateEventActivity extends AppCompatActivity {
                 // Generate a random unique event ID (large number)
                 long eventId = generateRandomEventId();
 
-                // Create ContentValues to store data
+                // Vytvoření ContentValues na ukládání dat
                 ContentValues values = new ContentValues();
                 values.put("event_name", eventName);
                 values.put("event_description", eventDescription);
-                values.put("event_id", eventId); // Store the generated event ID
+                values.put("event_id", eventId); // ukládání dat
 
-                // Insert the data into the database
+                // vložení dat do databáze
                 long insertedRowId = db.insert("events", null, values);
 
                 if (insertedRowId != -1) {
@@ -57,8 +57,8 @@ public class CreateEventActivity extends AppCompatActivity {
             }
         });
     }
-    private long generateRandomEventId() {
-        // Generate a random long value
+    private long generateRandomEventId() { //funkce generování ID pro připojení k eventu
+        // Gennerování náhodného ID = 0 - max hodnota longu
         return (long) (Math.random() * Long.MAX_VALUE);
     }
 }
