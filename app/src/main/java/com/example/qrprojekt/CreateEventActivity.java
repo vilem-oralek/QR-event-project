@@ -16,9 +16,9 @@ public class CreateEventActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_event);
 
         // Find views
-        EditText eventNameEditText = findViewById(R.id.editTextText);
-        EditText eventDescriptionEditText = findViewById(R.id.editTextText2);
-        Button createEventButton = findViewById(R.id.button3);
+        EditText eventNameEditText = findViewById(R.id.editTextEventName);
+        EditText eventDescriptionEditText = findViewById(R.id.editTextEventDescription);
+        Button createEventButton = findViewById(R.id.buttonEventCreate);
 
         // Initialize DBHelper and get writable database
         DBHelper dbHelper = new DBHelper(this);

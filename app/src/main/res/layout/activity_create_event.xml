@@ -8,7 +8,7 @@
     tools:context=".CreateEvent">
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/editTextEventName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="240dp"
@@ -20,17 +20,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/buttonEventCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:text="Vytvořit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextEventDescription" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/editTextEventDescription"
         android:layout_width="286dp"
         android:layout_height="139dp"
         android:layout_marginTop="30dp"
@@ -40,6 +40,6 @@
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextEventName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
