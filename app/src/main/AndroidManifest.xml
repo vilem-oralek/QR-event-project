@@ -13,7 +13,7 @@
         android:theme="@style/Theme.QRprojekt"
         tools:targetApi="31">
         <activity
-            android:name=".JoinedEvent"
+            android:name=".JoinedEventActivity"
             android:exported="false" />
         <activity
             android:name=".JoinEventActivity"

@@ -38,9 +38,10 @@ public class JoinEventActivity extends AppCompatActivity {
                     Toast.makeText(this, "Připojeno k eventu!", Toast.LENGTH_SHORT).show();
 
                     // Předání názvu a popisu eventu do JoinedEvent
-                    Intent intent = new Intent(this, JoinedEvent.class);
+                    Intent intent = new Intent(this, JoinedEventActivity.class);
                     intent.putExtra("event_name", cursor.getString(cursor.getColumnIndexOrThrow("event_name")));
                     intent.putExtra("event_description", cursor.getString(cursor.getColumnIndexOrThrow("event_description")));
+                    intent.putExtra("event_id", eventId);  // PŘIDEJ event_id !!!
                     startActivity(intent);
                 } else {
                     Toast.makeText(this, "Event ID neexistuje!", Toast.LENGTH_SHORT).show();
