@@ -46,19 +46,19 @@ public class CreateEventActivity extends AppCompatActivity {
 
                 if (insertedRowId != -1) {
                     // Event inserted successfully
-                    Toast.makeText(this, "Event Created with ID: " + eventId, Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Event vytvořen, ID: " + eventId, Toast.LENGTH_LONG).show();
                 } else {
                     // Event insertion failed
-                    Toast.makeText(this, "Failed to create event", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Selhání při vytváření eventu", Toast.LENGTH_SHORT).show();
                 }
             } else {
                 // Handle empty fields
-                Toast.makeText(this, "Please enter both event name and description", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Prosím zadejte název i popis", Toast.LENGTH_SHORT).show();
             }
         });
     }
     private long generateRandomEventId() { //funkce generování ID pro připojení k eventu
-        // Gennerování náhodného ID = 0 - max hodnota longu
+        // Gennerování náhodného ID = 0 až max hodnota longu
         return (long) (Math.random() * Long.MAX_VALUE);
     }
 }

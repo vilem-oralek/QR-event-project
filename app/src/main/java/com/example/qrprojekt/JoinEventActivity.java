@@ -8,11 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class JoinEventActivity extends AppCompatActivity {
 
@@ -41,7 +37,7 @@ public class JoinEventActivity extends AppCompatActivity {
                     Intent intent = new Intent(this, JoinedEventActivity.class);
                     intent.putExtra("event_name", cursor.getString(cursor.getColumnIndexOrThrow("event_name")));
                     intent.putExtra("event_description", cursor.getString(cursor.getColumnIndexOrThrow("event_description")));
-                    intent.putExtra("event_id", eventId);  // PŘIDEJ event_id !!!
+                    intent.putExtra("event_id", cursor.getLong(cursor.getColumnIndexOrThrow("event_id")));
                     startActivity(intent);
                 } else {
                     Toast.makeText(this, "Event ID neexistuje!", Toast.LENGTH_SHORT).show();

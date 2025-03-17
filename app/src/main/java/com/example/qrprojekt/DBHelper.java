@@ -1,9 +1,9 @@
 package com.example.qrprojekt;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 public class DBHelper extends SQLiteOpenHelper {
 
     // SQL query to create the Events table
@@ -40,5 +40,14 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS events");
         db.execSQL("DROP TABLE IF EXISTS qr_codes");
         onCreate(db);
+    }
+
+    public long addQrCode(SQLiteDatabase db, String qrCode, long eventId) {  // eventId je typu long
+        ContentValues values = new ContentValues();
+        values.put("qr_code", qrCode);
+        values.put("qr_status", "active"); // Nastavení kódu jako aktivní
+        values.put("event_id", eventId);   // event_id je typu long
+
+        return db.insert("qr_codes", null, values);  // Vkládáme do tabulky qr_codes
     }
 }
