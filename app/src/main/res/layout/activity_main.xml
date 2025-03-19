@@ -14,6 +14,7 @@
         android:layout_marginBottom="30dp"
         android:width="200dp"
         android:backgroundTint="@color/blue"
+        android:onClick="createEvent"
         android:text="Vytvořit event"
         app:layout_constraintBottom_toTopOf="@+id/buttonJoinEvent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,8 +27,19 @@
         android:layout_marginBottom="100dp"
         android:width="200dp"
         android:backgroundTint="@color/blue"
+        android:onClick="joinEvent"
         android:text="Připojit se k eventu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="324dp"
+        android:layout_height="487dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCreateEvent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
