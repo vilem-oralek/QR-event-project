@@ -5,19 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".JoinedEventActivity">
-
-    <TextView
-        android:id="@+id/textViewEventName"
-        android:layout_width="350dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="60dp"
-        android:text="Název"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qrCodeImageView" />
+    tools:context=".CreatedEventActivity">
 
     <TextView
         android:id="@+id/textViewEventDescription"
@@ -28,18 +16,30 @@
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewEventName" />
 
-    <ImageView
-        android:id="@+id/qrCodeImageView"
+    <com.journeyapps.barcodescanner.CompoundBarcodeView
+        android:id="@+id/barcodeScannerView"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_marginTop="110dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/textViewEventName"
+        android:layout_width="350dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="100dp"
+        android:text="Název"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barcodeScannerView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

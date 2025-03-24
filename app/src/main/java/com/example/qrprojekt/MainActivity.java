@@ -83,16 +83,20 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
             Event event = eventList.get(position);
+
             holder.textEventName.setText(event.getName());
             holder.textEventDescription.setText(event.getDescription());
+
             holder.textEventName.setGravity(Gravity.CENTER);
             holder.textEventDescription.setGravity(Gravity.CENTER);
             holder.textEventName.setTextSize(20);
+            holder.textEventDescription.setTextSize(16);
+            holder.itemView.setBackgroundResource(R.drawable.item_border);
 
             // otevření eventu po kliknutí
             holder.itemView.setOnClickListener(v -> {
-                Intent intent = new Intent(MainActivity.this, JoinedEventActivity.class);
-                intent.putExtra("event_id", event.getId());
+                Intent intent = new Intent(MainActivity.this, CreatedEventActivity.class);
+                    intent.putExtra("event_id", event.getId());
                 intent.putExtra("event_name", event.getName());
                 intent.putExtra("event_description", event.getDescription());
                 startActivity(intent);
