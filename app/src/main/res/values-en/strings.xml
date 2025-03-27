@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">QRprojekt</string>
+    <string name="event_id">Event\'s ID</string>
+    <string name="btn_join">Join</string>
+    <string name="btn_create">Create</string>
+    <string name="btn_join_event">Join event</string>
+    <string name="btn_create_event">Create an event</string>
+    <string name="event_name">Event\'s name</string>
+    <string name="event_description">Event\'s description</string>
+</resources>

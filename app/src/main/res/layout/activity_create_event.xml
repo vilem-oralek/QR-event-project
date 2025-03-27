@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateEvent">
+    android:background="@color/titan_white"
+    tools:context=".CreateEventActivity">
 
     <EditText
         android:id="@+id/editTextEventName"
@@ -13,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="240dp"
         android:ems="10"
-        android:hint="Název akce"
+        android:hint="@string/event_name"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +25,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="Vytvořit"
+        android:backgroundTint="@color/blue"
+        android:text="@string/btn_create"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEventDescription" />
@@ -36,7 +38,7 @@
         android:layout_marginTop="30dp"
         android:ems="10"
         android:gravity="bottom"
-        android:hint="Popis akce"
+        android:hint="@string/event_description"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -91,6 +91,8 @@ public class MainActivity extends AppCompatActivity {
             holder.textEventDescription.setGravity(Gravity.CENTER);
             holder.textEventName.setTextSize(20);
             holder.textEventDescription.setTextSize(16);
+            holder.textEventName.setPadding(0,0,0,10);
+            holder.textEventDescription.setPadding(0,20,20,10);
             holder.itemView.setBackgroundResource(R.drawable.item_border);
 
             // otevření eventu po kliknutí

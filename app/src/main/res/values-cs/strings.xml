@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">QRprojekt</string>
     <string name="event_id">ID eventu</string>
@@ -7,5 +8,4 @@
     <string name="btn_create_event">Vytvořit event</string>
     <string name="event_name">Název akce</string>
     <string name="event_description">Popis akce</string>
-
 </resources>

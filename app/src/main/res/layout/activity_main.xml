@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/titan_white"
     tools:context=".MainActivity">
 
     <Button
@@ -15,7 +16,7 @@
         android:width="200dp"
         android:backgroundTint="@color/blue"
         android:onClick="createEvent"
-        android:text="Vytvořit event"
+        android:text="@string/btn_create_event"
         app:layout_constraintBottom_toTopOf="@+id/buttonJoinEvent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -28,7 +29,7 @@
         android:width="200dp"
         android:backgroundTint="@color/blue"
         android:onClick="joinEvent"
-        android:text="Připojit se k eventu"
+        android:text="@string/btn_join_event"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
