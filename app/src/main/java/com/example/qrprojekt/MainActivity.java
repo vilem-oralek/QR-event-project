@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (cursor.moveToFirst()) {
             do {
-                long eventId = cursor.getLong(cursor.getColumnIndexOrThrow("event_id"));
+                Long eventId = cursor.getLong(cursor.getColumnIndexOrThrow("event_id"));
                 String eventName = cursor.getString(cursor.getColumnIndexOrThrow("event_name"));
                 String eventDescription = cursor.getString(cursor.getColumnIndexOrThrow("event_description"));
 
@@ -94,11 +94,14 @@ public class MainActivity extends AppCompatActivity {
             holder.textEventName.setPadding(0,0,0,10);
             holder.textEventDescription.setPadding(0,20,20,10);
             holder.itemView.setBackgroundResource(R.drawable.item_border);
+            ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams();
+            layoutParams.setMargins(0, 0, 0, 25);
+            holder.itemView.setLayoutParams(layoutParams);
 
             // otevření eventu po kliknutí
             holder.itemView.setOnClickListener(v -> {
                 Intent intent = new Intent(MainActivity.this, CreatedEventActivity.class);
-                    intent.putExtra("event_id", event.getId());
+                intent.putExtra("event_id", event.getId());
                 intent.putExtra("event_name", event.getName());
                 intent.putExtra("event_description", event.getDescription());
                 startActivity(intent);
@@ -122,17 +125,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private class Event {
-        private long id;
+        private Long id;
         private String name;
         private String description;
 
-        public Event(long id, String name, String description) {
+        public Event(Long id, String name, String description) {
             this.id = id;
             this.name = name;
             this.description = description;
         }
 
-        public long getId() {
+        public Long getId() {
             return id;
         }
 

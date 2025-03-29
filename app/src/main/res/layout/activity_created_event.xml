@@ -9,15 +9,28 @@
     tools:context=".CreatedEventActivity">
 
     <TextView
+        android:id="@+id/textViewEventId"
+        android:layout_width="350dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="15dp"
+        android:text="ID"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEventDescription" />
+
+    <TextView
         android:id="@+id/textViewEventDescription"
         android:layout_width="330dp"
         android:layout_height="200dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:text="TextView"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewEventName" />
 
@@ -35,7 +48,7 @@
         android:id="@+id/textViewEventName"
         android:layout_width="350dp"
         android:layout_height="35dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:text="Název"
         android:textAlignment="center"
         android:textSize="25sp"

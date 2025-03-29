@@ -29,15 +29,18 @@ public class CreatedEventActivity extends AppCompatActivity {
 
         TextView eventNameText = findViewById(R.id.textViewEventName);
         TextView eventDescriptionText = findViewById(R.id.textViewEventDescription);
+        TextView eventIdText = findViewById(R.id.textViewEventId);
         barcodeView = findViewById(R.id.barcodeScannerView);
 
         // Získání detailů eventu pomocí intentu
         String eventName = getIntent().getStringExtra("event_name");
         String eventDescription = getIntent().getStringExtra("event_description");
+        Long eventID = getIntent().hasExtra("event_id") ? getIntent().getLongExtra("event_id", -1) : null;
 
         if (eventName != null && eventDescription != null) {
             eventNameText.setText(eventName);
             eventDescriptionText.setText(eventDescription);
+            eventIdText.setText("ID: " + eventID);
         }
 
         // Spuštění scanneru
