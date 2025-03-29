@@ -3,6 +3,8 @@
     <style name="Base.Theme.QRprojekt" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="colorPrimary">#FBFCFB</item>
     </style>
 
     <style name="Theme.QRprojekt" parent="Base.Theme.QRprojekt" />
