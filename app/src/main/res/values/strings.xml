@@ -3,9 +3,10 @@
     <string name="event_id">ID eventu</string>
     <string name="btn_join">Připojit se</string>
     <string name="btn_create">Vytvořit</string>
-    <string name="btn_join_event">Připojit se k eventu</string>
-    <string name="btn_create_event">Vytvořit event</string>
+    <string name="btn_join_event">Připojit se k akci</string>
+    <string name="btn_create_event">Vytvořit akci</string>
     <string name="event_name">Název akce</string>
     <string name="event_description">Popis akce</string>
-
+    <string name="join_created_event">Nebo se připojte a spravujte již vytvořenou akci</string>
+    <string name="btn_copy_id">Zkopírovat ID správce</string>
 </resources>

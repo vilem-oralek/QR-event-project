@@ -4,5 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="titan_white">#EEEEFF</color>
     <color name="pearl_white">#FBFCFB</color>
-    <color name="pink">#3333FF</color>
+    <color name="neon_blue">#3333FF</color>
+    <color name="gray">#BD949494</color>
 </resources>

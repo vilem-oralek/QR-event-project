@@ -39,16 +39,16 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(eventAdapter);
 
     }
-    public void createEvent (View view){
+    public void createEvent (View view){ //onClick metoda - přesměrování na aktivitu vytvoření eventu
         Intent intent = new Intent(MainActivity.this, CreateEventActivity.class);
         startActivity(intent);
     }
-    public void joinEvent (View view){
+    public void joinEvent (View view){ //onClick metoda - přesměrování na aktivitu připojení k eventu
         Intent intent = new Intent(MainActivity.this, JoinEventActivity.class);
         startActivity(intent);
     }
 
-    private List<Event> loadEventsFromDatabase() {
+    private List<Event> loadEventsFromDatabase() { // Načte seznam eventů z databáze
         List<Event> events = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM events", null);
@@ -56,16 +56,18 @@ public class MainActivity extends AppCompatActivity {
         if (cursor.moveToFirst()) {
             do {
                 Long eventId = cursor.getLong(cursor.getColumnIndexOrThrow("event_id"));
+                Long eventManagerId = cursor.getLong(cursor.getColumnIndexOrThrow("manager_event_id"));
                 String eventName = cursor.getString(cursor.getColumnIndexOrThrow("event_name"));
                 String eventDescription = cursor.getString(cursor.getColumnIndexOrThrow("event_description"));
 
-                events.add(new Event(eventId, eventName, eventDescription));
+                events.add(new Event(eventId,eventManagerId, eventName, eventDescription));
             } while (cursor.moveToNext());
         }
-        cursor.close();
+        cursor.close(); //zavření databáze
         return events;
     }
 
+    // Adaptér pro RecyclerView, který zobrazí seznam eventů
     private class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder> {
         private List<Event> eventList;
 
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         @NonNull
         @Override
         public EventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            // Vytvoření vzhledu pro jednotlivé položky v seznamu
             View view = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_2, parent, false);
             return new EventViewHolder(view);
         }
@@ -84,9 +87,11 @@ public class MainActivity extends AppCompatActivity {
         public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
             Event event = eventList.get(position);
 
+            // Vypsání názvu a popisu eventu
             holder.textEventName.setText(event.getName());
             holder.textEventDescription.setText(event.getDescription());
 
+            // Úprava vzhledu a atributů položek v seznamu
             holder.textEventName.setGravity(Gravity.CENTER);
             holder.textEventDescription.setGravity(Gravity.CENTER);
             holder.textEventName.setTextSize(20);
@@ -98,10 +103,11 @@ public class MainActivity extends AppCompatActivity {
             layoutParams.setMargins(0, 0, 0, 25);
             holder.itemView.setLayoutParams(layoutParams);
 
-            // otevření eventu po kliknutí
+            // otevření eventu po kliknutí a poslání dat intentem
             holder.itemView.setOnClickListener(v -> {
                 Intent intent = new Intent(MainActivity.this, CreatedEventActivity.class);
                 intent.putExtra("event_id", event.getId());
+                intent.putExtra("event_manager_id", event.getManagerId());
                 intent.putExtra("event_name", event.getName());
                 intent.putExtra("event_description", event.getDescription());
                 startActivity(intent);
@@ -111,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public int getItemCount() {
             return eventList.size();
-        }
+        } //vrácení počtu eventů v seznamu
 
         class EventViewHolder extends RecyclerView.ViewHolder {
             TextView textEventName, textEventDescription;
@@ -126,10 +132,13 @@ public class MainActivity extends AppCompatActivity {
 
     private class Event {
         private Long id;
+        private Long managerId;
         private String name;
         private String description;
 
-        public Event(Long id, String name, String description) {
+        // Třída Event pro uchování informací o eventu
+        public Event(Long id, Long managerId, String name, String description) {
+            this.managerId = managerId;
             this.id = id;
             this.name = name;
             this.description = description;
@@ -138,11 +147,13 @@ public class MainActivity extends AppCompatActivity {
         public Long getId() {
             return id;
         }
+        public Long getManagerId() {
+            return managerId;
+        }
 
         public String getName() {
             return name;
         }
-
         public String getDescription() {
             return description;
         }

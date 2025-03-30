@@ -8,4 +8,6 @@
     <string name="btn_create_event">Create an event</string>
     <string name="event_name">Event\'s name</string>
     <string name="event_description">Event\'s description</string>
+    <string name="join_created_event">Or join and manage already created event</string>
+    <string name="btn_copy_id">Copy manager ID</string>
 </resources>

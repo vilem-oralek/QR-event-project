@@ -28,7 +28,7 @@ public class JoinedEventActivity extends AppCompatActivity {
         // Získání dat z intentu
         String eventName = getIntent().getStringExtra("event_name");
         String eventDescription = getIntent().getStringExtra("event_description");
-        long eventId = getIntent().getLongExtra("event_id", -1);
+        Long eventId = getIntent().getLongExtra("event_id", -1);
 
         if (eventName != null && eventDescription != null && eventId != -1) {
             // přepsaní názvu a popisu
@@ -39,7 +39,7 @@ public class JoinedEventActivity extends AppCompatActivity {
             String uniqueQrCode = generateUniqueQrCode();
             DBHelper dbHelper = new DBHelper(this);
             SQLiteDatabase db = dbHelper.getWritableDatabase();
-            long qrId = dbHelper.addQrCode(db, uniqueQrCode, eventId);
+            Long qrId = dbHelper.addQrCode(db, uniqueQrCode, eventId);
 
             if (qrId != -1) {
                 // Generování a zobrazení QR kódu

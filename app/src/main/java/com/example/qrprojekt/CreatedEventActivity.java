@@ -1,11 +1,15 @@
 package com.example.qrprojekt;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +23,7 @@ public class CreatedEventActivity extends AppCompatActivity {
 
     private CompoundBarcodeView barcodeView;
     private DBHelper dbHelper;
+    private Long managerEventId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,7 @@ public class CreatedEventActivity extends AppCompatActivity {
         String eventName = getIntent().getStringExtra("event_name");
         String eventDescription = getIntent().getStringExtra("event_description");
         Long eventID = getIntent().hasExtra("event_id") ? getIntent().getLongExtra("event_id", -1) : null;
+        managerEventId = getIntent().hasExtra("event_manager_id") ? getIntent().getLongExtra("event_manager_id", -1) : -1;
 
         if (eventName != null && eventDescription != null) {
             eventNameText.setText(eventName);
@@ -95,5 +101,15 @@ public class CreatedEventActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         barcodeView.pause();
+    }
+    public void copyManagerId(View view) {
+        if (managerEventId != null && managerEventId != -1) {
+            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText("Manager Event ID", String.valueOf(managerEventId)); // Convert to String
+            clipboard.setPrimaryClip(clip);
+            Toast.makeText(this, "ID zkopírováno!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Chyba: ID není dostupné!", Toast.LENGTH_SHORT).show();
+        }
     }
 }
